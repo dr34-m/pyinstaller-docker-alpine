@@ -1,0 +1,46 @@
+通用
+sed -i 's/dl-cdn.alpinelinux.org/mirrors.tuna.tsinghua.edu.cn/g' /etc/apk/repositories
+cd /app && pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+pip install --no-cache-dir -r requirements.txt && pyinstaller taoSync.spec && cd dist && ./taoSync
+
+amd64:success
+docker run -it --name=pyn-amd64 -v D:\github\tao-sync:/app python:3.11-alpine3.20 /bin/sh
+apk update && apk add --no-cache binutils
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+arm64:success
+docker run -it --name=pyn-arm64 -v D:\github\tao-sync:/app python:3.11-alpine3.20-arm64 /bin/sh
+apk update && apk add --no-cache binutils
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+armv7:success
+docker run -it --name=pyn-armv7 -v D:\github\tao-sync:/app python:3.11-alpine3.20-armv7 /bin/sh
+apk update && apk add --no-cache gcc zlib-dev libc-dev
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+armv6:success
+docker run -it --name=pyn-armv6 -v D:\github\tao-sync:/app python:3.11-alpine3.20-armv6 /bin/sh
+apk update && apk add --no-cache gcc zlib-dev libc-dev
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+386:success
+docker run -it --name=pyn-386 -v D:\github\tao-sync:/app python:3.11-alpine3.20-386 /bin/sh
+apk update && apk add --no-cache gcc zlib-dev libc-dev
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+ppc64le:success
+docker run -it --name=pyn-ppc64le -v D:\github\tao-sync:/app python:3.11-alpine3.20-ppc64le /bin/sh
+apk update && apk add --no-cache gcc zlib-dev libc-dev
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
+
+s390x:success
+docker run -it --name=pyn-s390x -v D:\github\tao-sync:/app python:3.11-alpine3.20-s390x /bin/sh
+apk update && apk add --no-cache gcc zlib-dev libc-dev
+pip install --upgrade pip
+pip install --no-cache-dir pyinstaller
